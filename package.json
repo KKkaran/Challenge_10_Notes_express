@@ -1,0 +1,22 @@
+{
+  "name": "challenge_10_notes_express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KKkaran/Challenge_10_Notes_express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KKkaran/Challenge_10_Notes_express/issues"
+  },
+  "homepage": "https://github.com/KKkaran/Challenge_10_Notes_express#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
