@@ -11,7 +11,7 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
 }
-
+console.log("working")
 // Show an element
 const show = (elem) => {
   elem.style.display = 'inline';
@@ -31,7 +31,7 @@ const getNotes = () =>
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+  })
 
 const saveNote = (note) =>
   fetch('/api/notes', {
