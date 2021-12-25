@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KKkaran/Challenge_10_Notes_express#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "heroku": "^7.59.2"
   }
 }
