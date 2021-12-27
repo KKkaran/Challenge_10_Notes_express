@@ -11,17 +11,15 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
 }
-console.log("working")
 // Show an element
 const show = (elem) => {
   elem.style.display = 'inline';
 };
-
 // Hide an element
 const hide = (elem) => {
   elem.style.display = 'none';
 };
-
+//$(".save-note").show(this)
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
@@ -108,6 +106,7 @@ const handleNewNoteView = (e) => {
   renderActiveNote();
 };
 
+//done
 const handleRenderSaveBtn = () => {
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
@@ -178,6 +177,6 @@ if (window.location.pathname === '/notes') {
   newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
+  console.log("working in notes")
 }
-
 getAndRenderNotes();
