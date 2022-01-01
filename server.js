@@ -1,19 +1,27 @@
 const express = require("express")
 const app = express()
 const path = require("path")
+const fs = require("fs")
+const uuid = require("./uuid/uuid")
 const PORT = process.env.PORT || 3001
 let data = require("./db/db.json")
-const fs = require("fs")
-
+let uuidList = []
+//get the already created uuids and push it to the array
+uuidList = data.map((t)=>{
+    return t.id
+})
+//middlewares
 app.use(express.static(__dirname + "/public"))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 //html routes
 app.get("/",(req,res)=>{
+    
     res.sendFile(__dirname + "/public/index.html")
 })
 app.get("/notes",(req,res)=>{
+    
     res.sendFile(__dirname + "/public/notes.html")
 })
 
@@ -23,6 +31,9 @@ app.get("/api/notes",(req,res)=>{
     res.sendFile(__dirname + "/db/db.json")
 })
 app.post("/api/notes",(req,res)=>{
+    uuidList.push(uuid(uuidList))
+    req.body.id = uuidList[uuidList.length-1]
+    console.log(req.body)
     data.unshift(req.body)
     fs.writeFile("./db/db.json",JSON.stringify(data),err=>{
         if(err) throw err
@@ -32,11 +43,11 @@ app.post("/api/notes",(req,res)=>{
     res.send("")
 })
 //e.target.parentElement.children[0].innerHTML
-app.delete("/api/notes/:name",(req,res)=>{
+app.delete("/api/notes/:id",(req,res)=>{
     
-    console.log(`The params is : ${req.params.name}`)
+    console.log(`The params is : ${req.params.id}`)
     let newData = data.filter(e=>{
-        if(e.title === req.params.name) return false
+        if(e.id === parseInt(req.params.id)) return false
         else return true    
     })
     console.log(data)
@@ -49,6 +60,9 @@ app.delete("/api/notes/:name",(req,res)=>{
     console.log(newData)
     res.send("")
 })
+
+
+
 
 app.listen(PORT,()=>{
     console.log(`The app is running on ${PORT}.`)
