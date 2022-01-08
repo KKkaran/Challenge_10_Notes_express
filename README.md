@@ -1,3 +1,7 @@
+# Link for app: https://takingnotesapp.herokuapp.com/
+
+
+
 <h1 align='center'>Note Taker App<span><img src="icons/project.png" height="25" width="25"/></span></h1>
     <img src="https://img.shields.io/badge/License-IPL1.0-blue.svg"/>
     <h2 id="description">Description</h2>
